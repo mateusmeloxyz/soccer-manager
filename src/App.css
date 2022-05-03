@@ -1,0 +1,72 @@
+.App {
+}
+
+.company-container {
+  border: 2px solid black;
+}
+
+.nav-container {
+  border: 2px solid gray;
+}
+
+.header-container {
+  border: 2px solid purple;
+}
+
+.body-container {
+  border: 2px solid grey;
+}
+
+.wrapper {
+  width: 870px;
+  margin: 0 auto;
+  border: 2px solid red;
+}
+
+table {
+  border: 2px solid blue;
+}
+
+.table-nav-wrapper{
+  display: flex;
+  border: 2px solid green;
+}
+
+.help-section-wrapper {
+  display: flex;
+  border: 2px solid brown;
+}
+
+.help-item {
+  border: 2px solid yellow;
+}
+
+.help-icon-text {
+  display: flex;
+  border: 2px solid red;
+} 
+
+.form-wrapper {
+  border: 2px solid blue;  
+}
+
+.form-box {
+  column-count: 2;
+  border: 2px solid orange;  
+}
+
+.form-buttons {
+  display: flex;
+}
+
+nav{
+  display: flex;
+}
+
+header {
+  display: flex;
+}
+
+table {
+  width: 100%;
+}
