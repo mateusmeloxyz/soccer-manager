@@ -2,16 +2,39 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
-function Row(props) {
+function Row({ props }) {
+  const [posts, setPosts] = useState(0);
+  const [albums, setAlbums] = useState(0);
+
+  useEffect(() => {
+    const getPosts = axios.get(
+      `https://626bd539e5274e6664d24112.mockapi.io/front-test/v1/user/${props.id}/posts`
+    );
+
+    const getAlbums = axios.get(
+      `https://626bd539e5274e6664d24112.mockapi.io/front-test/v1/user/${props.id}/albums`
+    );
+
+    axios
+      .all([getPosts, getAlbums])
+      .then(
+        axios.spread((...allData) => {
+          setPosts(allData[0].data);
+          setAlbums(allData[1].data);
+        })
+      )
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <tr>
-      <td>Sonya64</td>
-      <td>Mildred Turner</td>
-      <td>loraine25@hotmail.com</td>
-      <td>West Abraham</td>
+      <td>{props.username}</td>
+      <td>{props.name}</td>
+      <td>{props.email}</td>
+      <td>{props.city}</td>
       <td>Todos</td>
-      <td>3</td>
-      <td>2</td>
+      <td>{posts.length}</td>
+      <td>{albums.length}</td>
     </tr>
   );
 }
@@ -22,9 +45,15 @@ function App() {
   useEffect(() => {
     axios
       .get("https://626bd539e5274e6664d24112.mockapi.io/front-test/v1/user")
-      .then((res) => setUsers(res.data))
+      .then((res) => {
+        setUsers(res.data);
+      })
       .catch((err) => console.log(err));
   }, []);
+
+  const listUsers = users
+    .slice(0, 5)
+    .map((user) => <Row key={user.id} props={user} />);
 
   return (
     <>
@@ -80,53 +109,7 @@ function App() {
                     <td>ÁLBUMS</td>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>Sonya64</td>
-                    <td>Mildred Turner</td>
-                    <td>loraine25@hotmail.com</td>
-                    <td>West Abraham</td>
-                    <td>Todos</td>
-                    <td>3</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Selena89</td>
-                    <td>Troy Boehm</td>
-                    <td>agnes_lang@hotmail.com</td>
-                    <td>Bahringerbury</td>
-                    <td>Fins de Semana</td>
-                    <td>3</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Laverna58</td>
-                    <td>Maureen Kemmer</td>
-                    <td>agustina.orn@hotmail.com</td>
-                    <td>Ryannmouth</td>
-                    <td>Seg, Qua</td>
-                    <td>3</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Ari17</td>
-                    <td>Dale Schulist</td>
-                    <td>sterling.maggio@hotmail.com</td>
-                    <td>Alishastad</td>
-                    <td>Ter, Qui</td>
-                    <td>3</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Lue83</td>
-                    <td>Caleb Mitchell</td>
-                    <td>zena.jakubowski97@gmail.com</td>
-                    <td>South Markusland</td>
-                    <td>Seg, Ter, Qua, Qui</td>
-                    <td>3</td>
-                    <td>2</td>
-                  </tr>
-                </tbody>
+                <tbody>{listUsers}</tbody>
               </table>
             </div>
 
