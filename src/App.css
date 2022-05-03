@@ -1,16 +1,19 @@
-.App {
-}
-
 .company-container {
   border: 2px solid black;
+  height: 87px;
 }
 
 .nav-container {
   border: 2px solid gray;
+  height: 66px;
 }
 
 .header-container {
   border: 2px solid purple;
+}
+
+header {
+  height: 100px;
 }
 
 .body-container {
@@ -18,23 +21,51 @@
 }
 
 .wrapper {
-  width: 870px;
+  width: 875px;
   margin: 0 auto;
   border: 2px solid red;
 }
 
+.user-section {
+  border: 2px solid purple;
+  height: 611px;
+  margin-bottom: 36px;
+}
+
+.user-section h1{
+  height: 28px;
+  margin-bottom: 36px;
+}
+
+.user-section .search-box {
+  height: 70px;
+  margin-bottom: 24px;
+}
+
+.register-section {
+  border: 2px solid pink;
+  height: 660px;
+  margin-bottom: 36px;
+}
+
 table {
   border: 2px solid blue;
+  height: 393px;
+  margin-bottom: 24px;
 }
 
 .table-nav-wrapper{
   display: flex;
   border: 2px solid green;
+  height: 36px;
 }
 
 .help-section-wrapper {
   display: flex;
   border: 2px solid brown;
+  height: 132px;
+  margin-top: 36px;
+  margin-bottom: 22px;
 }
 
 .help-item {
@@ -47,12 +78,28 @@ table {
 } 
 
 .form-wrapper {
-  border: 2px solid blue;  
+  height: 442px;
+  border: 2px solid blue;
 }
 
 .form-box {
+  height: 210px;
+  margin-top: 21px;
+  margin-bottom: 77px;
   column-count: 2;
-  border: 2px solid orange;  
+  border: 2px solid orange;
+}
+
+form .input-box {
+  height: 70px;
+}
+
+.radio-wrapper {
+  width: 410px;
+}
+
+.radio-wrapper label{
+  margin-right: 30px;
 }
 
 .form-buttons {
@@ -69,4 +116,8 @@ header {
 
 table {
   width: 100%;
+}
+
+footer {
+  height: 87px;
 }
