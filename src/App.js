@@ -1,7 +1,6 @@
 import React from "react";
-import UserView from "./components/UserView";
-import RegisterView from "./components/RegisterView";
 import "./App.css";
+import { Outlet, Link } from "react-router-dom";
 
 function App() {
   return (
@@ -13,7 +12,10 @@ function App() {
       </div>
       <div className="nav-container">
         <nav>
-          <div className="logo">Welcome &gt; Register -</div>
+          <div className="logo">
+            Welcome &gt;
+            <Link to="/users/add">Register</Link> | <Link to="/">Users</Link>
+          </div>
           <div className="logo"> help -</div>
           <div className="logo"> waffle menu</div>
           <div className="logo"> | User Name</div>
@@ -39,9 +41,7 @@ function App() {
       </div>
       <div className="body-container">
         <div className="wrapper">
-          <UserView />
-
-          <RegisterView />
+          <Outlet />
         </div>
       </div>
 

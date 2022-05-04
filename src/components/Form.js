@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const CLEAR_FORM = {
+  username: "",
+  name: "",
+  email: "",
+  city: "",
+};
+
 function Form() {
-  const [formState, setFormState] = useState({
-    username: "",
-    name: "",
-    email: "",
-    city: "",
-  });
+  const [formState, setFormState] = useState(CLEAR_FORM);
 
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.id]: e.target.value });
@@ -23,6 +25,7 @@ function Form() {
       )
       .then((res) => {
         console.log(res);
+        setFormState(CLEAR_FORM);
       })
       .catch((err) => {
         console.log(err);
