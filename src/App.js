@@ -6,9 +6,15 @@ import "./App.css";
 function App() {
   const [users, setUsers] = useState([]);
   const [render, reRender] = useState(false);
+  const [searchText, setSearchText] = useState("");
 
   const listUsers = users
     .filter((user) => user.blocked === false)
+    .filter(
+      (user) =>
+        user.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
+        user.username.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+    )
     .slice(0, 5)
     .map((user) => <Row key={user.id} props={user} reRender={reRender} />);
 
@@ -64,7 +70,12 @@ function App() {
           <div className="user-section">
             <h1>Usuários</h1>
             <div className="search-box">
-              <input type="text" placeholder="Search"></input>
+              <input
+                type="text"
+                value={searchText}
+                placeholder="Search"
+                onChange={(e) => setSearchText(e.target.value)}
+              ></input>
               <button href="#">Lupa</button>
             </div>
             <div className="table-wrapper">
