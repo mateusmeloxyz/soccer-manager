@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Row from "./components/Row";
+import SearchBox from "./components/SearchBox";
 import "./App.css";
 
 function App() {
@@ -69,15 +70,10 @@ function App() {
         <div className="wrapper">
           <div className="user-section">
             <h1>Usuários</h1>
-            <div className="search-box">
-              <input
-                type="text"
-                value={searchText}
-                placeholder="Search"
-                onChange={(e) => setSearchText(e.target.value)}
-              ></input>
-              <button href="#">Lupa</button>
-            </div>
+            <SearchBox
+              searchText={searchText}
+              onSearchTextChange={setSearchText}
+            />
             <div className="table-wrapper">
               <table>
                 <thead>
