@@ -1,59 +1,30 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Row from "./components/Row";
 import "./App.css";
-
-function Row({ props }) {
-  const [posts, setPosts] = useState(0);
-  const [albums, setAlbums] = useState(0);
-
-  useEffect(() => {
-    const getPosts = axios.get(
-      `https://626bd539e5274e6664d24112.mockapi.io/front-test/v1/user/${props.id}/posts`
-    );
-
-    const getAlbums = axios.get(
-      `https://626bd539e5274e6664d24112.mockapi.io/front-test/v1/user/${props.id}/albums`
-    );
-
-    axios
-      .all([getPosts, getAlbums])
-      .then(
-        axios.spread((...allData) => {
-          setPosts(allData[0].data);
-          setAlbums(allData[1].data);
-        })
-      )
-      .catch((err) => console.log(err));
-  }, []);
-
-  return (
-    <tr>
-      <td>{props.username}</td>
-      <td>{props.name}</td>
-      <td>{props.email}</td>
-      <td>{props.city}</td>
-      <td>Todos</td>
-      <td>{posts.length}</td>
-      <td>{albums.length}</td>
-    </tr>
-  );
-}
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [render, reRender] = useState(false);
+
+  const listUsers = users
+    .filter((user) => user.blocked === false)
+    .slice(0, 5)
+    .map((user) => <Row key={user.id} props={user} reRender={reRender} />);
 
   useEffect(() => {
     axios
       .get("https://626bd539e5274e6664d24112.mockapi.io/front-test/v1/user")
       .then((res) => {
+        console.log(res);
         setUsers(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [render]);
 
-  const listUsers = users
-    .slice(0, 5)
-    .map((user) => <Row key={user.id} props={user} />);
+  useEffect(() => {
+    console.log(render);
+  }, [render]);
 
   return (
     <>
