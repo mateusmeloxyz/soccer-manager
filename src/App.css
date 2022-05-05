@@ -153,8 +153,40 @@ table {
 
 .table-nav-wrapper{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   border: 2px solid green;
   height: 36px;
+  width: 100%;
+}
+
+.table-nav-control{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 199px;
+}
+
+.table-nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px; /*change to 129 later*/
+  flex-grow: 2;
+}
+
+.table-nav-page-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px; /*change to 129 later*/
+}
+
+.table-nav-page-choice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px; /*change to 129 later*/
 }
 
 .help-section-wrapper {
