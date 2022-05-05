@@ -35,7 +35,7 @@ function UserView() {
   return (
     <div className="user-section">
       <h1>Usuários</h1>
-      <SearchBox searchText={searchText} onSearchTextChange={setSearchText} />
+      <SearchBox searchText={searchText} handleSubmit={setSearchText} />
       <div className="table-wrapper">
         <table>
           <thead>

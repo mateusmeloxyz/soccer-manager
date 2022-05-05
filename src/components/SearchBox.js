@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-function SearchBox({ searchText, onSearchTextChange }) {
+function SearchBox({ searchText, handleSubmit }) {
+  const [textInput, setTextInput] = useState("");
+
   return (
     <div className="search-box">
       <input
         type="text"
-        value={searchText}
+        value={textInput}
         placeholder="Search"
-        onChange={(e) => onSearchTextChange(e.target.value)}
+        onChange={(e) => setTextInput(e.target.value)}
       ></input>
-      <button href="#">Lupa</button>
+      <button onClick={() => handleSubmit(textInput)}>Lupa</button>
     </div>
   );
 }
