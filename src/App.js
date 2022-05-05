@@ -3,6 +3,9 @@ import "./App.css";
 import { ReactComponent as SensediaWhiteLogoWithText } from "./img/white-sensedia-logo-text.svg";
 import { ReactComponent as SensediaPurpleLogo } from "./img/purple-sensedia-icon.svg";
 import { ReactComponent as IconArrow } from "./img/icon-arrow.svg";
+import { ReactComponent as IconDribble } from "./img/icon-dribble-square.svg";
+import { ReactComponent as IconLevel } from "./img/level-icon.svg";
+import { ReactComponent as IconTrophy } from "./img/trophy-icon.svg";
 import IconHelp from "./img/icon-help.svg";
 import IconWaffleMenu from "./img/icon-waffle-menu.svg";
 import { Outlet, Link } from "react-router-dom";
@@ -57,17 +60,26 @@ function App() {
       <div className="header-container">
         <div className="wrapper">
           <header>
-            <div>
-              <h3>Tipo de quadra</h3>
-              <p>Society</p>
+            <div className="icon-text-info-box">
+              <IconDribble />
+              <div className="text-info">
+                <h3>Tipo de quadra</h3>
+                <p>Society</p>
+              </div>
             </div>
-            <div>
-              <h3>Nível</h3>
-              <p>Semi-profissional</p>
+            <div className="icon-text-info-box">
+              <IconLevel />
+              <div className="text-info">
+                <h3>Nível</h3>
+                <p>Semi-profissional</p>
+              </div>
             </div>
-            <div>
-              <h3>Vitórias</h3>
-              <p>345</p>
+            <div className="icon-text-info-box">
+              <IconTrophy />
+              <div className="text-info">
+                <h3>Vitórias</h3>
+                <p>345</p>
+              </div>
             </div>
           </header>
         </div>
@@ -80,9 +92,7 @@ function App() {
 
       <div className="footer-container">
         <div className="wrapper">
-          <footer>
-            <div>Nothing here yet</div>
-          </footer>
+          <footer></footer>
         </div>
       </div>
     </>

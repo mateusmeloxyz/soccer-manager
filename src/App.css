@@ -106,11 +106,28 @@ nav {
 }
 
 .header-container {
-  border: 2px solid purple;
+  background-color: #8556AA;
+  color: white;
 }
 
 header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 49px;
   height: 100px;
+}
+
+header > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/*TODO fix vertical space between later*/
+.text-info {
+  display: block;
 }
 
 .body-container {
@@ -120,13 +137,12 @@ header {
 .wrapper {
   width: 875px;
   margin: 0 auto;
-  border: 2px solid red;
 }
 
 .user-section {
-  border: 2px solid purple;
   height: 611px;
   margin-bottom: 36px;
+  padding-top: 12px;
 }
 
 .user-section h1{
@@ -136,7 +152,32 @@ header {
 
 .user-section .search-box {
   height: 70px;
+  width: 100%;
   margin-bottom: 24px;
+  display: relative;
+  position: relative;
+}
+
+.search-box input{
+  height: 38px;
+  width: 100%;
+  background-color: #E5E5E5;
+  border: none;
+  outline: none;
+  padding-left: 13px;
+  font-family: "Roboto", sans-serif;
+}
+
+.search-box a {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  margin-right: 11px;
+  margin-top: auto;
+}
+
+.search-box a:hover {
+  cursor: pointer;
 }
 
 .register-section {
@@ -243,6 +284,7 @@ table {
   width: 100%;
 }
 
-footer {
+.footer-container {
   height: 87px;
+  background-color: #3D3D3D;
 }

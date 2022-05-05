@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ReactComponent as IconSearch } from "../img/icon-search.svg";
 
 function SearchBox({ searchText, handleSubmit }) {
   const [textInput, setTextInput] = useState("");
@@ -11,7 +12,9 @@ function SearchBox({ searchText, handleSubmit }) {
         placeholder="Search"
         onChange={(e) => setTextInput(e.target.value)}
       ></input>
-      <button onClick={() => handleSubmit(textInput)}>Lupa</button>
+      <a onClick={() => handleSubmit(textInput)}>
+        <IconSearch />
+      </a>
     </div>
   );
 }
