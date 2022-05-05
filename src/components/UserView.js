@@ -9,6 +9,7 @@ function UserView() {
   const [searchText, setSearchText] = useState("");
   const [usersPerPage, setUsersPerPage] = useState(5);
   const [currPage, setCurrPage] = useState(0);
+  const [usersQnt, setUsersQnt] = useState(0);
 
   const handlePrev = () => {
     setCurrPage((prev) => prev - 1);
@@ -26,7 +27,14 @@ function UserView() {
         user.username.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
     )
     .slice(currPage * usersPerPage, currPage * usersPerPage + usersPerPage)
-    .map((user) => <Row key={user.id} props={user} reRender={reRender} />);
+    .map((user) => (
+      <Row
+        key={user.id}
+        props={user}
+        usersQnt={usersQnt}
+        setUsersQnt={setUsersQnt}
+      />
+    ));
 
   useEffect(() => {
     axios
@@ -34,6 +42,7 @@ function UserView() {
       .then((res) => {
         console.log(res);
         setUsers([...users, ...res.data]);
+        setUsersQnt(res.data.filter((user) => user.blocked === false).length);
       })
       .catch((err) => console.log(err));
   }, [render]);
@@ -50,13 +59,13 @@ function UserView() {
         <table>
           <thead>
             <tr>
-              <td>USERNAME</td>
-              <td>NOME</td>
-              <td>E-MAIL</td>
-              <td>CIDADE</td>
-              <td>DIAS DA SEMANA</td>
-              <td>POSTS</td>
-              <td>ÁLBUMS</td>
+              <th>USERNAME</th>
+              <th>NOME</th>
+              <th>E-MAIL</th>
+              <th>CIDADE</th>
+              <th>DIAS DA SEMANA</th>
+              <th>POSTS</th>
+              <th>ÁLBUMS</th>
             </tr>
           </thead>
           <tbody>{listUsers}</tbody>
@@ -65,7 +74,7 @@ function UserView() {
 
       <div className="table-nav-wrapper">
         <div className="table-nav-control">
-          <div>Total {users.length}</div>
+          <div>Total {usersQnt}</div>
           <div>show {usersPerPage} results</div>
         </div>
         <div className="table-nav-buttons">
@@ -77,7 +86,7 @@ function UserView() {
             <button>{currPage + 1}</button>
             <button onClick={handleNext}>{currPage + 1 + 1}</button>
             ...
-            <button>{Math.floor(users.length / usersPerPage)}</button>
+            <button>{Math.floor(usersQnt / usersPerPage)}</button>
           </div>
           <button onClick={handleNext}>NEXT</button>
         </div>

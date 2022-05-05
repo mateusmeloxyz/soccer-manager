@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { ReactComponent as IconTrash } from "../img/icon-trash.svg";
 
-function Row({ props, reRender }) {
+function Row({ props, usersQnt, setUsersQnt }) {
   const [posts, setPosts] = useState(0);
   const [albums, setAlbums] = useState(0);
 
@@ -14,7 +15,7 @@ function Row({ props, reRender }) {
       )
       .then((res) => {
         console.log(res);
-        reRender((current) => !current);
+        setUsersQnt((usersQnt) => usersQnt - 1);
       })
       .catch((err) => console.log(err));
   };
@@ -48,9 +49,9 @@ function Row({ props, reRender }) {
       <td>Todos</td>
       <td>{posts.length}</td>
       <td>{albums.length}</td>
-      <td>
-        <button onClick={handleDelete}>Delete</button>
-      </td>
+      <a onClick={handleDelete}>
+        <IconTrash />
+      </a>
     </tr>
   );
 }

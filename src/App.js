@@ -42,8 +42,8 @@ function App() {
                 <a href="#">
                   <img
                     src={IconWaffleMenu}
-                    className="help-logo"
-                    alt="help-logo"
+                    className="waffle-logo"
+                    alt="waffle-logo"
                   />
                 </a>
               </div>
