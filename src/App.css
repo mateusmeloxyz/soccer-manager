@@ -182,9 +182,9 @@ header > div {
 }
 
 .register-section {
-  border: 2px solid pink;
-  height: 660px;
+  height: auto;
   margin-bottom: 36px;
+  padding-top: 16px;
 }
 
 table {
@@ -270,25 +270,38 @@ table {
 
 .help-section-wrapper {
   display: flex;
-  border: 2px solid brown;
-  height: 132px;
+  height: auto;
   margin-top: 36px;
   margin-bottom: 22px;
+  gap: 29px;
 }
 
-.help-item {
-  border: 2px solid yellow;
+.help-item h4{
+  color: #7E50CE;
+  margin-bottom: 18px;
+}
+
+.help-item p{
+  color: #707070;
 }
 
 .help-icon-text {
   display: flex;
-  border: 2px solid red;
-} 
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.register-help-icons {
+  width: inherit;
+  height: inherit;
+}
 
 .form-wrapper {
   height: 442px;
   border: 1px solid #E0E0E0;
   border-radius: 10px;
+  padding: 36px 20px 36px 20px;
 }
 
 .form-box {
@@ -296,11 +309,48 @@ table {
   margin-top: 21px;
   margin-bottom: 77px;
   column-count: 2;
-  border: 2px solid orange;
 }
 
-form .input-box {
-  height: 70px;
+.input-box input {
+  height: 38px;
+  width: 100%;
+  background-color: #E5E5E5;
+  border: none;
+  border-bottom: 1px solid #9E9E9E;
+  outline: none;
+  padding-left: 13px;
+  font-family: "Roboto", sans-serif;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.form-buttons > .register-button {
+  border: 1px solid #7E50CE;
+  border-radius: 18px;
+  width: 80px;
+  height: 36px;
+  text-align: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: #7E50CE;
+  cursor: pointer;
+}
+
+.form-buttons > .cancel-button {
+  border: none;
+  width: 80px;
+  height: 36px;
+  text-align: center;
+  color: #7E50CE;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
 }
 
 .radio-wrapper {
