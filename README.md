@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to run:
+
+Make sure you have node 18 installed on you machine, then run:
+
+### `npm install`
+
+Then
+
+### `npm start`
+
+Inside the repo€ý,€ý,
+
 ## Available Scripts
 
 In the project directory, you can run:
