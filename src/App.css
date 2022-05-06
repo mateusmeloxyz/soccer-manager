@@ -224,6 +224,10 @@ table {
   width: 150px; /*change to 129 later*/
 }
 
+.table-nav-buttons button {
+  cursor: pointer;
+}
+
 .table-nav-page-choice {
   display: flex;
   align-items: center;
@@ -322,6 +326,12 @@ tr a {
   right: 0;
   top: 10px;
   margin-top: 17px;
+  margin-right: 15px;
   color: #9E9E9E;
   cursor: pointer;
+  display: none
+}
+
+tr:hover a {
+  display: inline;
 }
