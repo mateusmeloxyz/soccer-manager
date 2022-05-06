@@ -75,25 +75,21 @@ function UserView() {
           <div>show {usersPerPage} results</div>
         </div>
         <div className="table-nav-buttons">
-          {currPage !== 0 && <button onClick={handlePrev}>PREV</button>}
+          <button onClick={handlePrev}>PREV</button>
           <div className="table-nav-page-buttons">
-            {currPage >= 2 && <button onClick={() => setCurrPage(0)}>1</button>}
-            {/*currPage >= 3 &&*/ <p>...</p>}
-            {currPage >= 1 && (
-              <button onClick={handlePrev}>{currPage + 1 - 1}</button>
-            )}
+            <button onClick={() => setCurrPage(0)}>1</button>
+            <p>...</p>
+            <button onClick={handlePrev}>{currPage + 1 - 1}</button>
             <button>{currPage + 1}</button>
-            {currPage < Math.floor(usersQnt / usersPerPage) && (
-              <button onClick={handleNext}>{currPage + 1 + 1}</button>
-            )}
-            {currPage < Math.floor(usersQnt / usersPerPage) - 2 && <p>...</p>}
-            {currPage < Math.floor(usersQnt / usersPerPage) - 1 && (
-              <button>{Math.floor(usersQnt / usersPerPage) + 1}</button>
-            )}
+            <button onClick={handleNext}>{currPage + 1 + 1}</button>
+            <p>...</p>
+            <button
+              onClick={() => setCurrPage(Math.floor(usersQnt / usersPerPage))}
+            >
+              {Math.floor(usersQnt / usersPerPage) + 1}
+            </button>
           </div>
-          {currPage < Math.floor(usersQnt / usersPerPage) && (
-            <button onClick={handleNext}>NEXT</button>
-          )}
+          <button onClick={handleNext}>NEXT</button>
         </div>
         <div className="table-nav-page-choice">
           Jump to page{" "}

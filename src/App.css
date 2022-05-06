@@ -198,6 +198,7 @@ table {
   justify-content: space-between;
   height: 36px;
   width: 100%;
+  gap: 65px;
 }
 
 .table-nav-control{
@@ -208,10 +209,10 @@ table {
 }
 
 .table-nav-buttons {
+  width: 412px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 150px; /*change to 129 later*/
+  justify-content: space-between;
   flex-grow: 2;
 }
 
@@ -222,8 +223,42 @@ table {
   width: 150px; /*change to 129 later*/
 }
 
+.table-nav-page-buttons > button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #9E9E9E;
+  border-radius: 18px;
+  color: #707070;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  background-color: white;
+  padding: 0px;
+}
+
 .table-nav-buttons button {
+	padding: 0;
   cursor: pointer;
+}
+
+.table-nav-buttons button:hover {
+  background-color: #9E9E9E;
+  color: white
+}
+
+.table-nav-buttons > button {
+  border: 1px solid #9E9E9E;
+  border-radius: 18px;
+  width: 80px;
+  height: 36px;
+  text-align: center;
+  color: #707070;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  background-color: white;
 }
 
 .table-nav-page-choice {
@@ -252,7 +287,8 @@ table {
 
 .form-wrapper {
   height: 442px;
-  border: 2px solid blue;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
 }
 
 .form-box {
