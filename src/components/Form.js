@@ -105,8 +105,15 @@ function Form() {
           </div>
         </div>
         <div className="form-buttons">
-          <button>Registrar</button>
-          <button>Cancelar</button>
+          <button className="register-button" type="submit">
+            Registrar
+          </button>
+          <button
+            onClick={(e) => setFormState(CLEAR_FORM)}
+            className="cancel-button"
+          >
+            Cancelar
+          </button>
         </div>
       </form>
     </div>
