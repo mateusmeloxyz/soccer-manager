@@ -5,18 +5,19 @@ import SearchBox from "./SearchBox";
 
 function UserView() {
   const [users, setUsers] = useState([]);
-  const [render, reRender] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [usersPerPage, setUsersPerPage] = useState(5);
   const [currPage, setCurrPage] = useState(0);
   const [usersQnt, setUsersQnt] = useState(0);
 
   const handlePrev = () => {
-    setCurrPage((prev) => prev - 1);
+    setCurrPage((prev) => (prev >= 1 ? prev - 1 : prev));
   };
 
   const handleNext = () => {
-    setCurrPage((prev) => prev + 1);
+    setCurrPage((prev) =>
+      prev < usersQnt / usersPerPage - 1 ? prev + 1 : prev
+    );
   };
 
   const listUsers = users
@@ -41,15 +42,11 @@ function UserView() {
       .get("https://626bd539e5274e6664d24112.mockapi.io/front-test/v1/user")
       .then((res) => {
         console.log(res);
-        setUsers([...users, ...res.data]);
+        setUsers(res.data);
         setUsersQnt(res.data.filter((user) => user.blocked === false).length);
       })
       .catch((err) => console.log(err));
-  }, [render]);
-
-  useEffect(() => {
-    console.log(render);
-  }, [render]);
+  }, [usersQnt]);
 
   return (
     <div className="user-section">
@@ -78,17 +75,25 @@ function UserView() {
           <div>show {usersPerPage} results</div>
         </div>
         <div className="table-nav-buttons">
-          <button onClick={handlePrev}>PREV</button>
+          {currPage !== 0 && <button onClick={handlePrev}>PREV</button>}
           <div className="table-nav-page-buttons">
-            <button onClick={() => setCurrPage(0)}>1</button>
-            ...
-            <button onClick={handlePrev}>{currPage + 1 - 1}</button>
+            {currPage >= 2 && <button onClick={() => setCurrPage(0)}>1</button>}
+            {/*currPage >= 3 &&*/ <p>...</p>}
+            {currPage >= 1 && (
+              <button onClick={handlePrev}>{currPage + 1 - 1}</button>
+            )}
             <button>{currPage + 1}</button>
-            <button onClick={handleNext}>{currPage + 1 + 1}</button>
-            ...
-            <button>{Math.floor(usersQnt / usersPerPage)}</button>
+            {currPage < Math.floor(usersQnt / usersPerPage) && (
+              <button onClick={handleNext}>{currPage + 1 + 1}</button>
+            )}
+            {currPage < Math.floor(usersQnt / usersPerPage) - 2 && <p>...</p>}
+            {currPage < Math.floor(usersQnt / usersPerPage) - 1 && (
+              <button>{Math.floor(usersQnt / usersPerPage) + 1}</button>
+            )}
           </div>
-          <button onClick={handleNext}>NEXT</button>
+          {currPage < Math.floor(usersQnt / usersPerPage) && (
+            <button onClick={handleNext}>NEXT</button>
+          )}
         </div>
         <div className="table-nav-page-choice">
           Jump to page{" "}

@@ -188,7 +188,6 @@ header > div {
 }
 
 table {
-  border: 2px solid blue;
   height: 393px;
   margin-bottom: 24px;
 }
@@ -197,7 +196,6 @@ table {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid green;
   height: 36px;
   width: 100%;
 }

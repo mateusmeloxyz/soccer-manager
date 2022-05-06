@@ -49,9 +49,11 @@ function Row({ props, usersQnt, setUsersQnt }) {
       <td>Todos</td>
       <td>{posts.length}</td>
       <td>{albums.length}</td>
-      <a onClick={handleDelete}>
-        <IconTrash />
-      </a>
+      <td>
+        <a onClick={handleDelete}>
+          <IconTrash />
+        </a>
+      </td>
     </tr>
   );
 }
