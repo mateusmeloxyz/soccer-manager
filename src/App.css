@@ -11,7 +11,6 @@
 }
 
 .nav-container {
-  border: 2px solid gray;
   height: 66px;
 }
 
@@ -131,7 +130,7 @@ header > div {
 }
 
 .body-container {
-  border: 2px solid grey;
+  margin-bottom: 36px;
 }
 
 .wrapper {
@@ -140,7 +139,7 @@ header > div {
 }
 
 .user-section {
-  height: 611px;
+  height: auto;
   margin-bottom: 36px;
   padding-top: 12px;
 }
