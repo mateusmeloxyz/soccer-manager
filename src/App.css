@@ -304,6 +304,10 @@ table {
   padding: 36px 20px 36px 20px;
 }
 
+.form-wrapper h4{
+  color: #919191;
+}
+
 .form-box {
   height: 210px;
   margin-top: 21px;
